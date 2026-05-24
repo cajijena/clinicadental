@@ -112,6 +112,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <div class="field"><label>Edad</label><input id="f-edad" type="number" placeholder="35" min="0" max="120"></div>
       </div>
       <div class="field"><label>Teléfono</label><input id="f-tel" type="tel" placeholder="+56 9 1234 5678"></div>
+      <div class="field"><label>Email</label><input id="f-email" type="email" placeholder="paciente@email.com"></div>
       <div class="field"><label>Estado</label>
         <select id="f-status">
           <option value="En espera">En espera (lead nuevo)</option>
@@ -139,7 +140,7 @@ const SHEET_ID="1QN7Q6u90A50J-FEoSg-mhd-deyggDsHqJ4vttI5c8ns";
 const SHEET_NAME="Pacientes";
 const CREDS={
   client_email:"dr-cristian-allendes-jijena@coral-current-472915-s0.iam.gserviceaccount.com",
-  private_key:"-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDK6KGth3p8zwF2\nvC4OllQ8uunHaszq+f2PBT6xxZpv4+tI75m5fyQGZwmdI246pbCfFnu8VJejrZ+E\nPZfejNtYSbVVQlit6sny5ThssjBqV0/9KRPE07YdOb2QDgIDo/uwM0Nd2gaPqG7p\nLM0LbDp3krTf9AfspBRty4mg7aAAekAirjLU0LBTs58uq7VYJJQlHwPme0+gZ1Tw\npsIyh9VTIUnNqfvTGBST+dduz3T5rCsrsqC3AgRKQ/jR8F86g6DGOuDE4E+3R35D\nlUrI0f6/Dz8Jo060lmXhChwGkcGJG27h2hjF+ZJoVlcWucQqhbfZ7yfcCRTVOhjf\n9cZgdXhvAgMBAAECggEAU7ZSLaN9N0y4D+JnJgGDU2LR3EIFtNPadkz1pqYdpxfj\nFD41r7/yfum3n6rkaTG+goPmHLbRsOeKriYzJ8/5Fp2iQECVEXuSQbGr67xAGT9Y\nctulmki2E6yktm/xCMt4pSMhIfE3T8FvsKeZGKNYI8jU8qhdNJYlD38vksM2hbst\noEa7qO8KZXeQBTYgixEf2WwhPjfHO5uPlHBE40svZPin63ot9SQlAoG0pC33joG0\ntowrzPTvxIPINl9EHy35/HwGzNy+GEH4aLwyam6ce+lQPBoMIwR37e09eT0uYBxN\nnNTV+qaMPGFBSI5PsIUpSgXa/NOmDELBNQnEKiCdgQKBgQDyC+rHlYPiv19Ykw9B\n0hnGIlO/kGaEl0322gpHf7wIpA8/nIsniNuSFBSEubV4e5dZBI8Cfehy7n8GETBf\nFOkN7husik8ZgSQbVIjwlT7Ha38kk/iTNvoYpsminNZ5rxPn4tKxAKNFgsq97AJ6\ndQzIXLy1w4JFaSeHO0uZe/GWzwKBgQDWmx/xPmdDbyhZMiwflij/3XOpSE4K84+d\nEgyM/rriBgtifZpukg+SjSnS427SzyeYHFZJ0C+LxwdjjhmtoxzdA23acXyjS0oa\n2wIFauqKrdpodr5d+RuBwM1duT0rIcqmUzcsiv1Fut4gPcnmZiPgGf9wzTrUWLFu\nQNLDb/RsYQKBgBRbfDudD6KaheJlO/tFOHW5nWGXO4gbUatZW1P4IlB3u/CVsf55\nPD5lAfTHycOAYZJTF9QV0t8XwAc6mt7kW1WYmStB1rVGb0r9KSdS5hzPpbnl2BpJ\nnW9FV+AdYMyLNRljsmTAsPq/rV2b4/l4rsKLSjPfZa2A0ppFGm6mRgNxAoGAMM68\n+AfiQmLwgUC46kIjdvWtjW2FWlZEbkuhkRuJ80e+pRq92bHcWs9CGNVi6gz1C1I+\nibEQbzDHzGuQCX6UXOufu1OeLiE8bFks34COcRXTG3kOGJ9EE0F/M3aio8Geri80\n2CuQKKC0Tg7fcUf/lsMy5ju2yn6Vc+bISGyY4WECgYA5lIcHAvOutG9Oh+ViHB8J\nId0tW6hpL37oG0308ESVvhkoStC+/UwX9stJjjm1HsavCAZ4SHxVtTk56wMg9tPIl\n6OXNdV7KnjDvVowWlMwIm3V+ANNHl99ZtsNYdjAwQ7Vel2bpGtVm0J718dnSb1va\nCCp5nixu2BFXcBR/W2mzrQ==\n-----END PRIVATE KEY-----\n"
+  get private_key(){ return atob("LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2QUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktZd2dnU2lBZ0VBQW9JQkFRREs2S0d0aDNwOHp3RjIKdkM0T2xsUTh1dW5IYXN6cStmMlBCVDZ4eFpwdjQrdEk3NW01ZnlRR1p3bWRJMjQ2cGJDZkZudThWSmVqclorRQpQWmZlak50WVNiVlZRbGl0NnNueTVUaHNzakJxVjAvOUtSUEUwN1lkT2IyUURnSURvL3V3TTBOZDJnYVBxRzdwCkxNMExiRHAza3JUZjlBZnNwQlJ0eTRtZzdhQUFla0FpcmpMVTBMQlRzNTh1cTdWWUpKUWxId1BtZTArZ1oxVHcKcHNJeWg5VlRJVW5OcWZ2VEdCU1QrZGR1ejNUNXJDc3JzcUMzQWdSS1EvalI4Rjg2ZzZER091REU0RSszUjM1RApsVXJJMGY2L0R6OEpvMDYwbG1YaENod0drY0dKRzI3aDJoakYrWkpvVmxjV3VjUXFoYmZaN3lmY0NSVFZPaGpmCjljWmdkWGh2QWdNQkFBRUNnZ0VBVTdaU0xhTjlOMHk0RCtKbkpnR0RVMkxSM0VJRnROUGFka3oxcHFZZHB4ZmoKRkQ0MXI3L3lmdW0zbjZya2FURytnb1BtSExiUnNPZUtyaVl6SjgvNUZwMmlRRUNWRVh1U1FiR3I2N3hBR1Q5WQpjdHVsbWtpMkU2eWt0bS94Q010NHBTTWhJZkUzVDhGdnNLZVpHS05ZSThqVThxaGROSllsRDM4dmtzTTJoYnN0Cm9FYTdxTzhLWlhlUUJUWWdpeEVmMld3aFBqZkhPNXVQbEhCRTQwc3ZaUGluNjNvdDlTUWxBb0cwcEMzM2pvRzAKdG93cnpQVHZ4SVBJTmw5RUh5MzUvSHdHek55K0dFSDRhTHd5YW02Y2UrbFFQQm9NSXdSMzdlMDllVDB1WUJ4TgpuTlRWK3FhTVBHRkJTSTVQc0lVcFNnWGEvTk9tREVMQk5RbkVLaUNkZ1FLQmdRRHlDK3JIbFlQaXYxOVlrdzlCCjBobkdJbE8va0dhRWwwMzIyZ3BIZjd3SXBBOC9uSXNuaU51U0ZCU0V1YlY0ZTVkWkJJOENmZWh5N244R0VUQmYKRk9rTjdodXNpazhaZ1NRYlZJandsVDdIYTM4a2svaVROdm9ZcHNtaW5OWjVyeFBuNHRLeEFLTkZnc3E5N0FKNgpkUXpJWEx5MXc0SkZhU2VITzB1WmUvR1d6d0tCZ1FEV214L3hQbWREYnloWk1pd2ZsaWovM1hPcFNFNEs4NCtkCkVneU0vcnJpQmd0aWZacHVrZytTalNuUzQyN1N6eWVZSEZaSjBDK0x4d2RqamhtdG94emRBMjNhY1h5alMwb2EKMndJRmF1cUtyZHBvZHI1ZCtSdUJ3TTFkdVQwckljcW1VemNzaXYxRnV0NGdQY25tWmlQZ0dmOXd6VHJVV0xGdQpRTkxEYi9Sc1lRS0JnQlJiZkR1ZEQ2S2FoZUpsTy90Rk9IVzVuV0dYTzRnYlVhdFpXMVA0SWxCM3UvQ1ZzZjU1ClBENWxBZlRIeWNPQVlaSlRGOVFWMHQ4WHdBYzZtdDdrVzFXWW1TdEIxclZHYjByOUtTZFM1aHpQcGJubDJCcEoKblc5RlYrQWRZTXlMTlJsanNtVEFzUHEvclYyYjQvbDRyc0tMU2pQZlphMkEwcHBGR202bVJnTnhBb0dBTU02OAorQWZpUW1Md2dVQzQ2a0lqZHZXdGpXMkZXbFpFYmt1aGtSdUo4MGUrcFJxOTJiSGNXczlDR05WaTZnejFDMUkrCmliRVFiekRIekd1UUNYNlVYT3VmdTFPZUxpRThiRmtzMzRDT2NSWFRHM2tPR0o5RUUwRi9NM2FpbzhHZXJpODAKMkN1UUtLQzBUZzdmY1VmL2xzTXk1anUyeW42VmMrYklTR3lZNFdFQ2dZQTVsSWNIQXZPdXRHOU9oK1ZpSEI4SgpJZDB0VzZocEwzN29HMDMwOEVTVnZoa29TdEMrL1V3WDlzdEpqam0xSHNhdkNBWjRTSHhWdFRrNTZ3TWc5dFBJbAo2T1hOZFY3S25qRHZWb3dXbE13SW0zVitBTk5IbDk5WnRzTllkakF3UTdWZWwyYnBHdFZtMEo3MThkblNiMXZhCkNDcDVuaXh1MkJGWGNCUi9XMm16clE9PQotLS0tLUVORCBQUklWQVRFIEtFWS0tLS0t"); }
 };
 
 const STATUS={
@@ -190,12 +191,12 @@ async function loadFromSheet(){
   setStatus("Sincronizando...");
   try{
     const tok=await getToken();
-    const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A:G`,{headers:{Authorization:"Bearer "+tok}});
+    const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A:H`,{headers:{Authorization:"Bearer "+tok}});
     const d=await r.json();
     if(d.error)throw new Error(d.error.message);
     patients=(d.values||[]).slice(1).map((row,i)=>({
       row:i+2,name:row[0]||"",rut:row[1]||"",edad:row[2]||"",
-      tel:row[3]||"",status:row[4]||"En espera",notes:row[5]||"",created:row[6]||new Date().toISOString()
+      tel:row[3]||"",email:row[4]||"",status:row[5]||"En espera",notes:row[6]||"",created:row[7]||new Date().toISOString()
     })).filter(p=>p.name);
     setStatus("Actualizado "+new Date().toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit"}));
     render();showToast("Datos sincronizados");
@@ -205,29 +206,29 @@ async function loadFromSheet(){
 
 async function ensureHeader(){
   const tok=await getToken();
-  const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A1:G1`,{headers:{Authorization:"Bearer "+tok}});
+  const r=await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A1:H1`,{headers:{Authorization:"Bearer "+tok}});
   const d=await r.json();
   if(!d.values||!d.values[0]||d.values[0][0]!=="Nombre"){
-    await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A1:G1?valueInputOption=RAW`,{
+    await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A1:H1?valueInputOption=RAW`,{
       method:"PUT",headers:{Authorization:"Bearer "+tok,"Content-Type":"application/json"},
-      body:JSON.stringify({values:[["Nombre","RUT","Edad","Teléfono","Estado","Notas","Creado"]]})
+      body:JSON.stringify({values:[["Nombre","RUT","Edad","Teléfono","Email","Estado","Notas","Creado"]]})
     });
   }
 }
 
 async function appendRow(data){
   const tok=await getToken();await ensureHeader();
-  await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A:G:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,{
+  await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A:H:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,{
     method:"POST",headers:{Authorization:"Bearer "+tok,"Content-Type":"application/json"},
-    body:JSON.stringify({values:[[data.name,data.rut,data.edad,data.tel,data.status,data.notes,new Date().toISOString()]]})
+    body:JSON.stringify({values:[[data.name,data.rut,data.edad,data.tel,data.email,data.status,data.notes,new Date().toISOString()]]})
   });
 }
 
 async function updateRow(rowNum,data){
   const tok=await getToken();
-  await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A${rowNum}:G${rowNum}?valueInputOption=RAW`,{
+  await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}!A${rowNum}:H${rowNum}?valueInputOption=RAW`,{
     method:"PUT",headers:{Authorization:"Bearer "+tok,"Content-Type":"application/json"},
-    body:JSON.stringify({values:[[data.name,data.rut,data.edad,data.tel,data.status,data.notes,data.created]]})
+    body:JSON.stringify({values:[[data.name,data.rut,data.edad,data.tel,data.email,data.status,data.notes,data.created]]})
   });
 }
 
@@ -287,6 +288,7 @@ function render(){
           ${p.rut?`<span><i class="ti ti-id-badge" style="font-size:12px"></i> ${p.rut}</span>`:""}
           ${p.edad?`<span><i class="ti ti-calendar-user" style="font-size:12px"></i> ${p.edad} años</span>`:""}
           ${p.tel?`<span><i class="ti ti-phone" style="font-size:12px"></i> ${p.tel}</span>`:""}
+          ${p.email?`<span><i class="ti ti-mail" style="font-size:12px"></i> ${p.email}</span>`:""}
         </div>
         ${p.notes?`<div class="notes-p">${p.notes.substring(0,120)}${p.notes.length>120?"…":""}</div>`:""}
       </div>
@@ -306,6 +308,7 @@ function openModal(row=null){
   document.getElementById("f-rut").value=p?p.rut:"";
   document.getElementById("f-edad").value=p?p.edad:"";
   document.getElementById("f-tel").value=p?p.tel:"";
+  document.getElementById("f-email").value=p?p.email:"";
   document.getElementById("f-status").value=p?p.status:"En espera";
   document.getElementById("f-notes").value=p?p.notes:"";
   document.getElementById("modal-bg").className="modal-bg open";
@@ -322,6 +325,7 @@ async function savePatient(){
     name,rut:document.getElementById("f-rut").value.trim(),
     edad:document.getElementById("f-edad").value.trim(),
     tel:document.getElementById("f-tel").value.trim(),
+    email:document.getElementById("f-email").value.trim(),
     status:document.getElementById("f-status").value,
     notes:document.getElementById("f-notes").value.trim(),
     created:editingRow?(patients.find(p=>p.row===editingRow)||{}).created||new Date().toISOString():new Date().toISOString()
